@@ -70,11 +70,10 @@ class UserRepository {
             }
         }
 
-    suspend fun deleteUser(id: Int): {
-        return newSuspendedTransaction(Dispatchers.IO) {
-            UserTable.
+        suspend fun deleteUser(id: Int): Int {
+            return newSuspendedTransaction(Dispatchers.IO) {
+                UserTable.deleteWhere { UserTable.id eq id }
+            }
         }
-    }
-
 
 }

@@ -9,9 +9,6 @@ import umfg.application.payloads.CreateUserPayload
 import umfg.application.responses.UserCreatedResponse
 import umfg.infra.repository.UserRepository
 
-//ANDRE - 1451
-//WANDERLEY - 1524
-
 fun Application.configureRouting() {
     routing {
         val repository = UserRepository()
@@ -58,6 +55,7 @@ fun Application.configureRouting() {
             repository.updateById(id, user)
 
             val entity = repository.findById(id)
+            print(entity)
             if (entity != null) {
                 call.respond(HttpStatusCode.OK, entity)
             } else {
@@ -69,14 +67,7 @@ fun Application.configureRouting() {
             val id: Int = call.parameters["id"]?.toInt()
                 ?: throw IllegalArgumentException("Id deve ser informado!")
 
-            val existUser = repository.findById(id)
-            if (existUser == null) {
-                call.respond(HttpStatusCode.NotFound)
-                return@delete
-            }
-
-            repository.deleteUser(id)
-            call.respond(HttpStatusCode.OK)
+            val user = repository.delete(id)
         }
     }
 }

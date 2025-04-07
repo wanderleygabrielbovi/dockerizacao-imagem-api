@@ -1,42 +1,46 @@
-# tasks-server
+# Sobre
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
+Esse projeto é um container Docker de uma API em Kotlin sem integração com banco de dados externo, e que faz operações CRUD.
 
-Here are some useful links to get you started:
+## Implementações
 
-- [Ktor Documentation](https://ktor.io/docs/home.html)
-- [Ktor GitHub page](https://github.com/ktorio/ktor)
-- The [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). You'll need to [request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) to join.
+- [X] Buscar por id
+- [X] Buscar usuários
+- [X] Criar novo usuário
+- [X] Atualizar por id
+- [X] Deletar por id
 
-## Features
+## Pré-requisitos
 
-Here's a list of features included in this project:
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com/), [IntelliJ](https://www.jetbrains.com/), [Docker](https://www.docker.com/).
 
-| Name                                                                   | Description                                                                        |
-| ------------------------------------------------------------------------|------------------------------------------------------------------------------------ |
-| [Routing](https://start.ktor.io/p/routing)                             | Provides a structured routing DSL                                                  |
-| [kotlinx.serialization](https://start.ktor.io/p/kotlinx-serialization) | Handles JSON serialization using kotlinx.serialization library                     |
-| [Content Negotiation](https://start.ktor.io/p/content-negotiation)     | Provides automatic content conversion according to Content-Type and Accept headers |
-| [Exposed](https://start.ktor.io/p/exposed)                             | Adds Exposed database to your application                                          |
+## :game_die: Rodando o projeto
+```bash
+# Clone este repositório
+$ git clone <https://github.com/wanderleygabrielbovi/dockerizacao-imagem-api.git>
 
-## Building & Running
+# Acesse a pasta do projeto no terminal/cmd
+$ cd {nome da pasta}/dockerizacao-imagem-api
 
-To build or run the project, use one of the following tasks:
+# Execute a linha de comando para criar a imagem Docker do projeto
+$ docker build -t {nome-da-imagem} .
 
-| Task                          | Description                                                          |
-| -------------------------------|---------------------------------------------------------------------- |
-| `./gradlew test`              | Run the tests                                                        |
-| `./gradlew build`             | Build everything                                                     |
-| `buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `run`                         | Run the server                                                       |
-| `runDocker`                   | Run using the local docker image                                     |
+# Execute a linha de comando para rodar a imagem Docker do projeto
+$ docker run -p 8080:8080 {nome-da-imagem}
 
-If the server starts successfully, you'll see the following output:
-
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
+# O servidor iniciará na porta:8080 - acesse <http://localhost:8080>
 ```
 
+## :hammer_and_wrench: Tecnologias
+
+As seguintes ferramentas foram usadas para a construção do projeto:
+
+- [Kotlin](https://kotlinlang.org/)
+- [Ktor](https://ktor.io/)
+- [Graddle](https://gradle.org/)
+- [Docker](https://www.docker.com/)
+
+---
+
+Made with :blue_heart: by WANDER [See My LinkedIn](https://github.com/wanderleygabrielbovi)
